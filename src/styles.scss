@@ -15,16 +15,27 @@
 
 .toast-success {
   @apply bg-green-500 text-white;
+  box-shadow: 0 0 12px rgba(122, 255, 101, 0.85) !important;
 }
 
 .toast-error {
   @apply bg-red-500 text-white;
+  box-shadow: 0 0 12px rgba(255, 101, 101, 0.85) !important;
 }
 
 .toast-warning {
   @apply bg-yellow-500 text-gray-800;
+  box-shadow: 0 0 12px rgba(255, 188, 101, 0.85) !important;
 }
 
 .toast-info {
   @apply bg-blue-500 text-white;
+  box-shadow: 0 0 12px rgba(101, 145, 255, 0.85) !important;
+}
+
+.ngx-toastr {
+  border-radius: 12px !important;
+  opacity: .85 !important;
+  padding: 15px 15px 15px 60px !important;
+  background-size: 34px !important;
 }

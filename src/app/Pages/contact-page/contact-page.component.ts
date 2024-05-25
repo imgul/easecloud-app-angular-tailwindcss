@@ -59,6 +59,10 @@ export class ContactPageComponent {
         error: (error) => {
           this.is_loading = false;
           this.errors = error.error.errors;
+          this.toastr.success(error.error.message, 'Error Occurred!');
+          this.toastr.warning(error.error.message, 'Error Occurred!');
+          this.toastr.info(error.error.message, 'Error Occurred!');
+          this.toastr.error(error.error.message, 'Error Occurred!');
           this.toastr.error(error.error.message, 'Error Occurred!');
         }
       });
