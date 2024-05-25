@@ -39,8 +39,11 @@ export interface CFSubmissionData {
 })
 export class CFSubmissionService {
 
-  private apiGetUrl = 'http://localhost:8080/api/cf-submissions';
-  private apiPostUrl = 'http://localhost:8080/api/cf-submissions';
+  private apiGetUrl = 'https://slim-php.xsill.com/api/cf-submissions';
+  private apiPostUrl = 'https://slim-php.xsill.com/api/cf-submissions';
+
+  // private apiGetUrl = 'http://localhost:8080/api/cf-submissions';
+  // private apiPostUrl = 'http://localhost:8080/api/cf-submissions';
 
   constructor(private http: HttpClient) { }
 
