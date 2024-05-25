@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import 'ngx-toastr/toastr';
+
+.toast-top-right {
+  @apply top-0 right-0 mt-4 mr-4;
+}
+
+.toast {
+  @apply bg-white text-gray-800 shadow-lg rounded-lg p-4 flex items-center;
+}
+
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+}
+
+.toast-warning {
+  @apply bg-yellow-500 text-gray-800;
+}
+
+.toast-info {
+  @apply bg-blue-500 text-white;
+}

@@ -4,6 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {CFSubmissionService} from "../../Services/cfsubmission.service";
 import {NgIf} from "@angular/common";
 import {SpinnerComponent} from "../../Utilities/spinner/spinner.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-page',
@@ -29,7 +30,7 @@ export class ContactPageComponent {
 
   errors: any = [];
 
-  constructor(private cFSubmissionService: CFSubmissionService) { }
+  constructor(private cFSubmissionService: CFSubmissionService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -47,16 +48,18 @@ export class ContactPageComponent {
 
     this.cFSubmissionService.submit(inputData)
       .subscribe({
-        next: (data) => {
+        next: (data: any) => {
           this.is_loading = false;
           this.errors = [];
           this.name = '';
           this.email = '';
           this.message = '';
+          this.toastr.success(data.message, 'Success!');
         },
         error: (error) => {
           this.is_loading = false;
           this.errors = error.error.errors;
+          this.toastr.error(error.error.message, 'Error Occurred!');
         }
       });
   }
