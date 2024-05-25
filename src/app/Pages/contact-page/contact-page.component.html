@@ -1,0 +1,50 @@
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="space-y-10 divide-y divide-gray-900/10">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
+      <div class="px-4 sm:px-0">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Contact Us</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">We keep you and your data far away from scammers and spammers.</p>
+      </div>
+
+      <form (ngSubmit)="submit()" class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+        <div class="px-4 py-6 sm:p-8">
+          <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="col-span-full">
+              <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full name</label>
+              <div class="mt-2">
+                <input type="text" [(ngModel)]="name" [disabled]="is_loading" name="name" id="name" [class.ring-red-600]="errors.name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <span *ngIf="errors.name" class="text-red-500 text-sm font-medium">{{ errors.name }}</span>
+              </div>
+            </div>
+
+            <div class="col-span-full">
+              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+              <div class="mt-2">
+                <input id="email" [(ngModel)]="email" [disabled]="is_loading" name="email" type="email" [class.ring-red-600]="errors.email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <span *ngIf="errors.email" class="text-red-500 text-sm font-medium">{{ errors.email }}</span>
+              </div>
+            </div>
+
+            <div class="col-span-full">
+              <label for="message" class="block text-sm font-medium leading-6 text-gray-900">Your Message</label>
+              <div class="mt-2">
+                <textarea id="message" [(ngModel)]="message" [disabled]="is_loading" name="message" rows="3" [class.ring-red-600]="errors.message" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                <span *ngIf="errors.message" class="text-red-500 text-sm font-medium">{{ errors.message }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+          <button routerLink="/" [disabled]="is_loading" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+          <button type="submit" [disabled]="is_loading" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <app-spinner [title]="loadingTitle" *ngIf="is_loading; else elseLabel" />
+            <ng-template #elseLabel >
+              Send
+            </ng-template>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
