@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, RouterLink} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-layout',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
@@ -13,6 +15,7 @@ import {ActivatedRoute, RouterLink} from "@angular/router";
 export class LayoutComponent {
 
   title: string | undefined;
+  isOpenUserMenu: boolean = false;
 
   constructor(private route: ActivatedRoute) { }
 
